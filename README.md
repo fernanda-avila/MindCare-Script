@@ -33,7 +33,9 @@ Utilizamos métodos ágeis para garantir que tudo saia como planejado:
 - **Design & Planejamento:** Usamos FigJam para brainstorming e Figma para criar um design incrível.
 
 [Trello](https://trello.com/b/T5FOzhAs/mindcare-senac-rs)
+
 [FigJam](https://www.figma.com/board/9QUTWGEGpSQ1Y4MZl2PyVw/MindCare)
+
 [Figma](https://www.figma.com/design/B5ga9nF97oTQ15RA8OIEQf/MindCare-Senac?node-id=0-1&node-type=CANVAS&t=eLen43U6AGwzMcWt-0)
 
 ## 👩‍💻 Quem Está por Trás do Projeto?
