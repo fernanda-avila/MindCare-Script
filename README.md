@@ -1,4 +1,6 @@
-# 🌟 MindCare - Sua Plataforma de Apoio à Saúde Mental 🌟
+#  MindCare - Sua Plataforma de Apoio à Saúde Mental 
+![Preview__1_-removebg-preview](https://github.com/user-attachments/assets/71f0cd92-e550-4039-ba0c-1b54f4aca659)
+
 
 ## 🎉 O Que é o MindCare?
 
