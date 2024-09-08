@@ -1,7 +1,7 @@
 #  MindCare - Sua Plataforma de Apoio à Saúde Mental 
 
 
-## 🎉 O Que é o MindCare?
+## 🧠💗 O Que é o MindCare?
 
 O MindCare é um projeto para uma plataforma de apoio à saúde mental, projetada para tornar o cuidado com sua mente mais fácil e acessível. Imagine um lugar onde você pode encontrar suporte, conectar-se com profissionais, e acessar recursos locais sem complicação. 
 É o que planejamos que o MindCare possa trazer ao mercado.
