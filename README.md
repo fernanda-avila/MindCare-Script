@@ -1,10 +1,12 @@
 #  MindCare - Sua Plataforma de Apoio à Saúde Mental 
 
-
 ## 🧠💗 O Que é o MindCare?
 
 O MindCare é um projeto para uma plataforma de apoio à saúde mental, projetada para tornar o cuidado com sua mente mais fácil e acessível. Imagine um lugar onde você pode encontrar suporte, conectar-se com profissionais, e acessar recursos locais sem complicação. 
 É o que planejamos que o MindCare possa trazer ao mercado.
+
+## 🗺️ Como rodar o projeto:
+- Após clonar o repositório usando o comando ``git clone [link do repositório]`` no terminal, use o comando ``npm i`` para instalar as dependências node do projeto e depois ``node [nome do arquivo]``.
 
 ## 🚀 Funcionalidades Principais
 
@@ -48,7 +50,6 @@ Utilizamos métodos ágeis para garantir que tudo saia como planejado:
 
 1. **Desenvolvimento da Interface:** Estamos aprimorando a aparência e a funcionalidade.
 2. **Integração de Funcionalidades:** Implementando o chat, o chatbot e mais!
-
 
 Fique de olho no nosso progresso e faça parte do MindCare. 
 Estamos iniciando um processo longo com o MindCare e qualquer crítica ou sugestão ao projeto sempre será bem vinda!
