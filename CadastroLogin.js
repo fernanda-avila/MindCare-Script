@@ -3,6 +3,7 @@ const users = [];
 let currentUser = null;
 
 //checando se os dados são validos
+//revisar lógica!!!!
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 const isValidPassword = (password) => /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
 
