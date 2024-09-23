@@ -59,13 +59,15 @@ const isValidPassword = (password) => /^(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
 // Função principal
 function mainMenu() {
     while (true) {
-        console.log('\n1. Login\n2. Cadastrar\n3. Mostrar Todos os Usuários\n4. Sair');
+        console.log('\n1. Login\n2. Cadastrar\n3. Mostrar Todos os Usuários\n4. Editar Perfil\n5. Deletar Perfil\n6. Sair');
         const choice = prompt('Escolha uma opção (ou "voltar" para retornar): ');
 
         if (choice === '1') login();
         else if (choice === '2') register();
         else if (choice === '3') showAllUsers();
-        else if (choice === '4' || choice.toLowerCase() === 'voltar') {
+        else if (choice === '4') editProfile();
+        else if (choice === '5') deleteProfile();
+        else if (choice === '6' || choice.toLowerCase() === 'voltar') {
             console.log('Saindo...');
             break;
         } else {
@@ -80,6 +82,77 @@ function showAllUsers() {
     users.forEach((user, index) => {
         console.log(`${index + 1}. Email: ${user.email}, Data de Nascimento: ${user.birthDate}, Telefone: ${user.phone}, Maior de idade: ${user.isAdult ? 'Sim' : 'Não'}`);
     });
+}
+
+function login() {
+    while (true) {
+        const email = prompt('Digite seu email (ou "voltar" para retornar): ');
+        if (email.toLowerCase() === 'voltar') return;
+
+        const user = users.find(u => u.email === email);
+        if (!user) {
+            console.log('Usuário não encontrado.');
+            continue;
+        }
+
+        const password = prompt('Digite sua senha: ');
+        if (bcrypt.compareSync(password, user.password)) {
+            console.log('Login realizado com sucesso!');
+            return;
+        } else {
+            console.log('Senha incorreta.');
+        }
+    }
+}
+
+// Função para editar perfil
+function editProfile() {
+    const email = prompt('Digite seu email para editar seu perfil (ou "voltar" para retornar): ');
+    const user = users.find(u => u.email === email);
+
+    if (!user) {
+        console.log('Usuário não encontrado.');
+        return;
+    }
+
+    console.log('Usuário encontrado. Você pode editar os seguintes campos:');
+    const newEmail = prompt(`Novo email (atual: ${user.email}): `);
+    const newPassword = prompt('Nova senha (mínimo 8 caracteres e um número): ');
+    const newBirthDate = prompt(`Nova data de nascimento (atual: ${user.birthDate}): `);
+    const newPhone = prompt(`Novo telefone (atual: ${user.phone}): `);
+    const newIsAdult = prompt(`Você é maior de idade? (atual: ${user.isAdult ? 'Sim' : 'Não'}) (sim/não): `).toLowerCase() === 'sim';
+
+    // Atualiza os dados do usuário
+    if (newEmail) user.email = newEmail;
+    if (newPassword && isValidPassword(newPassword)) {
+        const salt = bcrypt.genSaltSync(10);
+        user.password = bcrypt.hashSync(newPassword, salt);
+    }
+    if (newBirthDate) user.birthDate = newBirthDate;
+    if (newPhone) user.phone = newPhone;
+    user.isAdult = newIsAdult;
+
+    // Atualiza o arquivo com as novas informações
+    updateUsersFile(users);
+    console.log('Perfil atualizado com sucesso!');
+}
+
+// Função para deletar perfil
+function deleteProfile() {
+    const email = prompt('Digite seu email para deletar seu perfil (ou "voltar" para retornar): ');
+    const userIndex = users.findIndex(u => u.email === email);
+
+    if (userIndex === -1) {
+        console.log('Usuário não encontrado.');
+        return;
+    }
+
+    // Remove o usuário do array
+    users.splice(userIndex, 1);
+    
+    // Atualiza o arquivo com a lista de usuários
+    updateUsersFile(users);
+    console.log('Perfil deletado com sucesso!');
 }
 
 // Iniciando o menu principal
