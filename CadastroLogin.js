@@ -147,13 +147,22 @@ function deleteProfile() {
         return;
     }
 
+    // Confirmação de exclusão
+    const confirmation = prompt(`Tem certeza que deseja deletar o perfil associado ao email ${email}? (sim/não): `).toLowerCase();
+    if (confirmation !== 'sim') {
+        console.log('Operação cancelada.');
+        return;
+    }
+    
+
     // Remove o usuário do array
     users.splice(userIndex, 1);
-    
+
     // Atualiza o arquivo com a lista de usuários
     updateUsersFile(users);
     console.log('Perfil deletado com sucesso!');
 }
+
 
 // Iniciando o menu principal
 mainMenu();
